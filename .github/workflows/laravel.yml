@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # - name: Install Dependencies
     #   run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
@@ -62,3 +62,8 @@ jobs:
         username: your_username
         password: your_password
         server-dir: /public_html/laravel-demo/
+
+    # - name: Notify ClickUp on Failure
+    #   if: failure()
+    #   run: |
+    #     curl -X POST -H "Content-Type: application/json" -d '{"text":"GitHub Actions workflow failed"}' YOUR_CLICKUP_WEBHOOK_URL
